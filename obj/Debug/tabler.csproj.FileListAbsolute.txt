@@ -1,0 +1,15 @@
+C:\wpfprojects\tabler\obj\Debug\tabler.csprojAssemblyReference.cache
+C:\wpfprojects\tabler\obj\Debug\MainWindow.g.cs
+C:\wpfprojects\tabler\obj\Debug\App.g.cs
+C:\wpfprojects\tabler\obj\Debug\tabler_MarkupCompile.cache
+C:\wpfprojects\tabler\obj\Debug\tabler_MarkupCompile.lref
+C:\wpfprojects\tabler\bin\Debug\tabler.exe.config
+C:\wpfprojects\tabler\bin\Debug\tabler.exe
+C:\wpfprojects\tabler\bin\Debug\tabler.pdb
+C:\wpfprojects\tabler\obj\Debug\MainWindow.baml
+C:\wpfprojects\tabler\obj\Debug\tabler.g.resources
+C:\wpfprojects\tabler\obj\Debug\tabler.Properties.Resources.resources
+C:\wpfprojects\tabler\obj\Debug\tabler.csproj.GenerateResource.cache
+C:\wpfprojects\tabler\obj\Debug\tabler.csproj.CoreCompileInputs.cache
+C:\wpfprojects\tabler\obj\Debug\tabler.exe
+C:\wpfprojects\tabler\obj\Debug\tabler.pdb
