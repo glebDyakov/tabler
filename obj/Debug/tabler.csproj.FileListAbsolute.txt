@@ -13,3 +13,8 @@ C:\wpfprojects\tabler\obj\Debug\tabler.csproj.GenerateResource.cache
 C:\wpfprojects\tabler\obj\Debug\tabler.csproj.CoreCompileInputs.cache
 C:\wpfprojects\tabler\obj\Debug\tabler.exe
 C:\wpfprojects\tabler\obj\Debug\tabler.pdb
+C:\wpfprojects\tabler\bin\Debug\EntityFramework.dll
+C:\wpfprojects\tabler\bin\Debug\EntityFramework.SqlServer.dll
+C:\wpfprojects\tabler\bin\Debug\EntityFramework.xml
+C:\wpfprojects\tabler\bin\Debug\EntityFramework.SqlServer.xml
+C:\wpfprojects\tabler\obj\Debug\tabler.csproj.CopyComplete

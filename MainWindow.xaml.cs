@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Speech.Synthesis;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +21,21 @@ namespace tabler
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public TextBlock activeCell;
+        public SpeechSynthesizer debugger;
+        public TextBlock activeRow;
+        public TextBlock activeColumn;
+        public int columnsPerRow = 21;
+        public int rowsPerColumn = 20;
         public MainWindow()
         {
             InitializeComponent();
+
+            activeCell = startCell;
+            debugger = new SpeechSynthesizer();
+            activeRow = startRow;
+            activeColumn = startColumn;
         }
 
         private void HoverRowHandler(object sender, MouseEventArgs e)
@@ -35,7 +48,37 @@ namespace tabler
         private void HoutRowHandler(object sender, MouseEventArgs e)
         {
             TextBlock currentCell = (TextBlock)sender;
-            ((TextBlock)currentCell).Background = System.Windows.Media.Brushes.LightGray;
+            if(activeRow == ((TextBlock)currentCell) || activeColumn == ((TextBlock)currentCell)) {
+                ((TextBlock)currentCell).Background = System.Windows.Media.Brushes.DarkGray;
+            }
+            else
+            {
+                ((TextBlock)currentCell).Background = System.Windows.Media.Brushes.LightGray;
+            }
+                
+        }
+
+        private void SelectCellHandler(object sender, MouseButtonEventArgs e)
+        {
+            activeCell.Background = System.Windows.Media.Brushes.Transparent;
+            activeCell = (TextBlock)sender;
+            activeCell.Background = System.Windows.Media.Brushes.Green;
+            int actualColumn = Grid.GetColumn(activeCell);
+            int actualRow = Grid.GetRow(activeCell);
+            /*debugger.Speak("строчка " + actualRow);
+            debugger.Speak("колонка" + actualColumn);*/
+            activeRow.Background = System.Windows.Media.Brushes.LightGray;
+            activeColumn.Background = System.Windows.Media.Brushes.LightGray;
+            activeColumn = ((TextBlock)paper.Children[actualColumn]);
+            activeColumn.Background = System.Windows.Media.Brushes.DarkGray;
+            activeRow = ((TextBlock)paper.Children[columnsPerRow * (actualRow + 1)]);
+            activeRow.Background = System.Windows.Media.Brushes.DarkGray;
+            formula.Text = activeCell.Text;
+        }
+
+        private void InputFormulaHandler(object sender, TextCompositionEventArgs e)
+        {
+            activeCell.Text = formula.Text;
         }
     }
 }
