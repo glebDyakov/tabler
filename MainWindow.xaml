@@ -39,11 +39,11 @@
             </ComboBox>
             <TextBlock Text="⋮" Height="15" TextAlignment="Center" Margin="15, 0, 0, 0" />
             <StackPanel Background="White" Margin="15, 5, 0, 5" Orientation="Horizontal">
-                <TextBlock Text="X" Height="15" TextAlignment="Center" Margin="15, 0, 0, 0" />
-                <TextBlock Text="V" Height="15" TextAlignment="Center" Margin="15, 0, 0, 0" />
-                <TextBlock Text="fx" Height="15" TextAlignment="Center" Margin="15, 0, 15, 0" />
+                <TextBlock x:Name="cancelBtn" Foreground="LightGray" FontFamily="Showcard Gothic" MouseUp="CancelBtnHandler" Text="X" Height="15" TextAlignment="Center" Margin="15, 0, 0, 0" />
+                <TextBlock x:Name="applyBtn" Foreground="LightGray" FontFamily="Showcard Gothic" MouseUp="ApplyBtnHandler" Text="V" Height="15" TextAlignment="Center" Margin="15, 0, 0, 0" />
+                <TextBlock x:Name="insertFormulaBtn" FontFamily="Showcard Gothic" MouseUp="InsertFormulaBtnHandler" Text="fx" Height="15" TextAlignment="Center" Margin="15, 0, 15, 0" />
             </StackPanel>
-            <TextBox x:Name="formula"  PreviewTextInput="InputFormulaHandler" Margin="15, 5, 0, 5" Width="510" />
+            <TextBox x:Name="formula"  TextChanged="InputFormulaHandler" Margin="15, 5, 0, 5" Width="510" />
         </StackPanel>
         <Grid x:Name="paper"  Grid.Row="2" ShowGridLines="True">
             <Grid.RowDefinitions>
@@ -93,27 +93,27 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" Text="" Grid.Row="0" Grid.Column="0" />
-            <TextBlock x:Name="startColumn" Cursor="ArrowCD" Background="DarkGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="A" Grid.Row="0" Grid.Column="1" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="B" Grid.Row="0" Grid.Column="2" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="C" Grid.Row="0" Grid.Column="3" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="D" Grid.Row="0" Grid.Column="4" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="E" Grid.Row="0" Grid.Column="5" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="F" Grid.Row="0" Grid.Column="6" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="G" Grid.Row="0" Grid.Column="7" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="H" Grid.Row="0" Grid.Column="8" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="J" Grid.Row="0" Grid.Column="9" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="K" Grid.Row="0" Grid.Column="10" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="L" Grid.Row="0" Grid.Column="11" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="M" Grid.Row="0" Grid.Column="12" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="N" Grid.Row="0" Grid.Column="13" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="O" Grid.Row="0" Grid.Column="14" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="P" Grid.Row="0" Grid.Column="15" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="R" Grid.Row="0" Grid.Column="16" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="S" Grid.Row="0" Grid.Column="17" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="T" Grid.Row="0" Grid.Column="18" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="U" Grid.Row="0" Grid.Column="19" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="V" Grid.Row="0" Grid.Column="20" />
-            <TextBlock TextAlignment="Center" Text="1" Grid.Row="1" Grid.Column="0" />
+            <TextBlock x:Name="startColumn" MouseUp="SelectCells" Cursor="ArrowCD" Background="DarkGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="A" Grid.Row="0" Grid.Column="1" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="B" Grid.Row="0" Grid.Column="2" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="C" Grid.Row="0" Grid.Column="3" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="D" Grid.Row="0" Grid.Column="4" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="E" Grid.Row="0" Grid.Column="5" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="F" Grid.Row="0" Grid.Column="6" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="G" Grid.Row="0" Grid.Column="7" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="H" Grid.Row="0" Grid.Column="8" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="J" Grid.Row="0" Grid.Column="9" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="K" Grid.Row="0" Grid.Column="10" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="L" Grid.Row="0" Grid.Column="11" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="M" Grid.Row="0" Grid.Column="12" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="N" Grid.Row="0" Grid.Column="13" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="O" Grid.Row="0" Grid.Column="14" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="P" Grid.Row="0" Grid.Column="15" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="R" Grid.Row="0" Grid.Column="16" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="S" Grid.Row="0" Grid.Column="17" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="T" Grid.Row="0" Grid.Column="18" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="U" Grid.Row="0" Grid.Column="19" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="V" Grid.Row="0" Grid.Column="20" />
+            <TextBlock TextAlignment="Center" Text="1" Grid.Row="1" Grid.Column="0" MouseUp="SelectReverseCells" Cursor="ArrowCD" />
             <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="1" />
             <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="2" />
             <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="3" />
