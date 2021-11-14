@@ -111,28 +111,28 @@ namespace tabler
             // выделяем строчки
             for (int rowIndex = 2; rowIndex < paper.ColumnDefinitions.Count; rowIndex++)
             {
-                ((TextBlock)paper.Children[columnsPerRow * (actualRow + 1) * rowIndex]).Background = System.Windows.Media.Brushes.DarkGray;
+                ((TextBlock)paper.Children[columnsPerRow * (actualRow + 1) * (rowIndex - 1)]).Background = System.Windows.Media.Brushes.DarkGray;
             }
             // сбрасываем выделенные колонки
             for (int rowIndex = 1; rowIndex < paper.ColumnDefinitions.Count; rowIndex++)
             {
-                for (int columnIndex = 0; columnIndex < paper.RowDefinitions.Count; columnIndex++)
+                for (int columnIndex = 0; columnIndex < paper.RowDefinitions.Count - 1; columnIndex++)
                 {
                     if (columnIndex == 0)
                     {
                         // нужно раскрашивать шапку колокни
-                        ((TextBlock)paper.Children[rowIndex + 21 * columnIndex]).Background = System.Windows.Media.Brushes.LightGray;
+                        ((TextBlock)paper.Children[rowIndex - 0 + 21 * columnIndex]).Background = System.Windows.Media.Brushes.LightGray;
                     }
                     else
                     {
-                        ((TextBlock)paper.Children[rowIndex + 21 * columnIndex]).Background = System.Windows.Media.Brushes.White;
+                        ((TextBlock)paper.Children[rowIndex - 0 + 21 * columnIndex]).Background = System.Windows.Media.Brushes.White;
                     }
                 }
             }
             // выделяем колонки
             for (int columnIndex = 1; columnIndex < paper.RowDefinitions.Count; columnIndex++)
             {
-                ((TextBlock)paper.Children[paper.Children.IndexOf(activeCell) + 21 * columnIndex]).Background = System.Windows.Media.Brushes.DarkGray;
+                ((TextBlock)paper.Children[paper.Children.IndexOf(activeCell) - 0 + 21 * (columnIndex - 1)]).Background = System.Windows.Media.Brushes.DarkGray;
             }
         }
 
@@ -142,31 +142,38 @@ namespace tabler
             int actualColumn = Grid.GetColumn(activeCell);
             int actualRow = Grid.GetRow(activeCell);
             activeColumn = ((TextBlock)paper.Children[actualColumn]);
-            // выделяем строчки
-            for (int rowIndex = 2; rowIndex < paper.ColumnDefinitions.Count; rowIndex++)
-            {
-                ((TextBlock)paper.Children[columnsPerRow * (actualRow + 1) * rowIndex]).Background = System.Windows.Media.Brushes.DarkGray;
-            }
-            // сбрасываем выделенные колонки
+            // выделяем колонки
             for (int rowIndex = 1; rowIndex < paper.ColumnDefinitions.Count; rowIndex++)
             {
-                for (int columnIndex = 0; columnIndex < paper.RowDefinitions.Count; columnIndex++)
+                ((TextBlock)paper.Children[rowIndex]).Background = System.Windows.Media.Brushes.DarkGray;
+            }
+            for (int rowIndex = 0; rowIndex < paper.ColumnDefinitions.Count; rowIndex++)
+            {
+                for (int columnIndex = 0; columnIndex < paper.RowDefinitions.Count - 1; columnIndex++)
                 {
                     if (columnIndex == 0)
                     {
                         // нужно раскрашивать шапку колокни
-                        ((TextBlock)paper.Children[rowIndex + 21 * columnIndex]).Background = System.Windows.Media.Brushes.LightGray;
+                        ((TextBlock)paper.Children[rowIndex - 0 + 21 * columnIndex]).Background = System.Windows.Media.Brushes.DarkGray;
                     }
                     else
                     {
-                        ((TextBlock)paper.Children[rowIndex + 21 * columnIndex]).Background = System.Windows.Media.Brushes.White;
+                        if (rowIndex == 0)
+                        {
+                            // нужно раскрашивать шапку колокни
+                            ((TextBlock)paper.Children[rowIndex - 0 + 21 * columnIndex]).Background = System.Windows.Media.Brushes.LightGray;
+                        }
+                        else
+                        {
+                            ((TextBlock)paper.Children[rowIndex - 0 + 21 * columnIndex]).Background = System.Windows.Media.Brushes.White;
+                        }
                     }
                 }
             }
-            // выделяем колонки
-            for (int columnIndex = 1; columnIndex < paper.RowDefinitions.Count; columnIndex++)
+            // выделяем строчки
+            for (int rowIndex = 0; rowIndex < paper.RowDefinitions.Count; rowIndex++)
             {
-                ((TextBlock)paper.Children[paper.Children.IndexOf(activeCell) + 21 * columnIndex]).Background = System.Windows.Media.Brushes.DarkGray;
+                ((TextBlock)paper.Children[(actualRow + 0) * (rowsPerColumn + 1) + rowIndex]).Background = System.Windows.Media.Brushes.DarkGray;
             }
         }
 

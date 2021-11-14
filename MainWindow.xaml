@@ -93,48 +93,27 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" Text="" Grid.Row="0" Grid.Column="0" />
-            <TextBlock x:Name="startColumn" MouseUp="SelectCells" Cursor="ArrowCD" Background="DarkGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="A" Grid.Row="0" Grid.Column="1" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="B" Grid.Row="0" Grid.Column="2" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="C" Grid.Row="0" Grid.Column="3" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="D" Grid.Row="0" Grid.Column="4" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="E" Grid.Row="0" Grid.Column="5" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="F" Grid.Row="0" Grid.Column="6" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="G" Grid.Row="0" Grid.Column="7" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="H" Grid.Row="0" Grid.Column="8" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="J" Grid.Row="0" Grid.Column="9" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="K" Grid.Row="0" Grid.Column="10" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="L" Grid.Row="0" Grid.Column="11" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="M" Grid.Row="0" Grid.Column="12" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="N" Grid.Row="0" Grid.Column="13" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="O" Grid.Row="0" Grid.Column="14" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="P" Grid.Row="0" Grid.Column="15" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="R" Grid.Row="0" Grid.Column="16" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="S" Grid.Row="0" Grid.Column="17" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="T" Grid.Row="0" Grid.Column="18" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="U" Grid.Row="0" Grid.Column="19" />
-            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ArrowCD" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="V" Grid.Row="0" Grid.Column="20" />
-            <TextBlock TextAlignment="Center" Text="1" Grid.Row="1" Grid.Column="0" MouseUp="SelectReverseCells" Cursor="ArrowCD" />
-            <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="1" />
-            <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="2" />
-            <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="3" />
-            <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="4" />
-            <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="5" />
-            <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="6" />
-            <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="7" />
-            <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="8" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="9" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="10" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="11" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="12" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="13" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="14" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="15" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="16" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="17" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="18" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="19" />
-            <TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="20" />
-            <TextBlock  x:Name="startRow" Background="DarkGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="1" Grid.Row="1" Grid.Column="0" />
+            <TextBlock x:Name="startColumn" MouseUp="SelectCells" Cursor="ScrollS" Background="DarkGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="A" Grid.Row="0" Grid.Column="1" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="B" Grid.Row="0" Grid.Column="2" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="C" Grid.Row="0" Grid.Column="3" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="D" Grid.Row="0" Grid.Column="4" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="E" Grid.Row="0" Grid.Column="5" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="F" Grid.Row="0" Grid.Column="6" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="G" Grid.Row="0" Grid.Column="7" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="H" Grid.Row="0" Grid.Column="8" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="J" Grid.Row="0" Grid.Column="9" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="K" Grid.Row="0" Grid.Column="10" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="L" Grid.Row="0" Grid.Column="11" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="M" Grid.Row="0" Grid.Column="12" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="N" Grid.Row="0" Grid.Column="13" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="O" Grid.Row="0" Grid.Column="14" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="P" Grid.Row="0" Grid.Column="15" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="R" Grid.Row="0" Grid.Column="16" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="S" Grid.Row="0" Grid.Column="17" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="T" Grid.Row="0" Grid.Column="18" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="U" Grid.Row="0" Grid.Column="19" />
+            <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="V" Grid.Row="0" Grid.Column="20" />
+            <TextBlock  x:Name="startRow" Cursor="ScrollE" Background="DarkGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="1" Grid.Row="1" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock x:Name="startCell" MouseUp="SelectCellHandler" Cursor="Cross" Background="Green" TextAlignment="Center" Grid.Row="1" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="1" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="1" Grid.Column="3" />
@@ -155,7 +134,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="1" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="1" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="1" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="2" Grid.Row="2" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseUp="SelectReverseCells" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="2" Grid.Row="2" Grid.Column="0" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="2" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" TextAlignment="Center" Grid.Row="2" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="2" Grid.Column="3" />
@@ -176,7 +155,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="2" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="2" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="2" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="3" Grid.Row="3" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="3" Grid.Row="3" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="3" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="3" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="3" Grid.Column="3" />
@@ -197,7 +176,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="3" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="3" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="3" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="4" Grid.Row="4" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="4" Grid.Row="4" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="4" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="4" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="4" Grid.Column="3" />
@@ -218,7 +197,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="4" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="4" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="4" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="5" Grid.Row="5" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="5" Grid.Row="5" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="5" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="5" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="5" Grid.Column="3" />
@@ -239,7 +218,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="5" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="5" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="5" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="6" Grid.Row="6" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="6" Grid.Row="6" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="6" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="6" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="6" Grid.Column="3" />
@@ -259,8 +238,8 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="6" Grid.Column="17" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="6" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="6" Grid.Column="19" />
-            <TextBlock TextAlignment="Center" Grid.Row="6" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="7" Grid.Row="7" Grid.Column="0" />
+            <TextBlock TextAlignment="Center" Grid.Row="6" Grid.Column="20" MouseUp="SelectReverseCells" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="7" Grid.Row="7" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="7" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="7" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="7" Grid.Column="3" />
@@ -281,7 +260,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="7" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="7" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="7" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="8" Grid.Row="8" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="8" Grid.Row="8" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="8" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="8" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="8" Grid.Column="3" />
@@ -302,7 +281,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="8" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="8" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="8" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="9" Grid.Row="9" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="9" Grid.Row="9" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="9" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="9" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="9" Grid.Column="3" />
@@ -323,7 +302,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="9" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="9" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="9" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="10" Grid.Row="10" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="10" Grid.Row="10" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="10" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="10" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="10" Grid.Column="3" />
@@ -344,7 +323,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="10" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="10" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="10" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="11" Grid.Row="11" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="11" Grid.Row="11" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="11" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="11" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="11" Grid.Column="3" />
@@ -365,7 +344,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="11" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="11" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="11" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="12" Grid.Row="12" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="12" Grid.Row="12" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="12" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="12" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="12" Grid.Column="3" />
@@ -386,7 +365,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="12" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="12" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="12" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="13" Grid.Row="13" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="13" Grid.Row="13" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="13" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="13" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="13" Grid.Column="3" />
@@ -407,7 +386,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="13" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="13" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="13" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="14" Grid.Row="14" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="14" Grid.Row="14" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="14" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="14" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="14" Grid.Column="3" />
@@ -428,7 +407,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="14" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="14" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="14" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="15" Grid.Row="15" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="15" Grid.Row="15" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="15" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="15" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="15" Grid.Column="3" />
@@ -449,7 +428,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="15" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="15" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="15" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="16" Grid.Row="16" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="16" Grid.Row="16" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="16" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="16" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="16" Grid.Column="3" />
@@ -470,7 +449,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="16" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="16" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="16" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="17" Grid.Row="17" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="17" Grid.Row="17" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="17" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="17" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="17" Grid.Column="3" />
@@ -490,8 +469,8 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="17" Grid.Column="17" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="17" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="17" Grid.Column="19" />
-            <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="6" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="18" Grid.Row="18" Grid.Column="0" />
+            <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="17" Grid.Column="20" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="18" Grid.Row="18" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="18" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="18" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="18" Grid.Column="3" />
@@ -512,7 +491,7 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="18" Grid.Column="18" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="18" Grid.Column="19" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="18" Grid.Column="20" />
-            <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="19" Grid.Row="19" Grid.Column="0" />
+            <TextBlock Cursor="ScrollE" Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="19" Grid.Row="19" Grid.Column="0" MouseUp="SelectReverseCells" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="19" Grid.Column="1" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="19" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="19" Grid.Column="3" />
