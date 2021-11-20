@@ -93,7 +93,21 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <TextBlock Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" Text="" Grid.Row="0" Grid.Column="0" />
-            <TextBlock x:Name="startColumn" MouseUp="SelectCells" Cursor="ScrollS" Background="DarkGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="A" Grid.Row="0" Grid.Column="1" />
+            <TextBlock x:Name="startColumn" MouseUp="SelectCells" Cursor="ScrollS" Background="DarkGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="A" Grid.Row="0" Grid.Column="1">
+                <TextBlock.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Вырезать" />
+                        <MenuItem Header="Копировать" />
+                        <MenuItem Header="Вставить" />
+                        <MenuItem Header="Удалить" />
+                        <MenuItem Header="Очистить содержимое" />
+                        <MenuItem Header="Формат ячеек" />
+                        <MenuItem Header="Ширина столбца" Click="changeColumnWidthHandler" />
+                        <MenuItem Header="Скрыть" />
+                        <MenuItem Header="Показать" />
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
             <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="B" Grid.Row="0" Grid.Column="2" />
             <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="C" Grid.Row="0" Grid.Column="3" />
             <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="D" Grid.Row="0" Grid.Column="4" />
@@ -113,8 +127,41 @@
             <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="T" Grid.Row="0" Grid.Column="18" />
             <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="U" Grid.Row="0" Grid.Column="19" />
             <TextBlock Background="LightGray" MouseUp="SelectCells" Cursor="ScrollS" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="V" Grid.Row="0" Grid.Column="20" />
-            <TextBlock  x:Name="startRow" Cursor="ScrollE" Background="DarkGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="1" Grid.Row="1" Grid.Column="0" MouseUp="SelectReverseCells" />
-            <TextBlock x:Name="startCell" MouseUp="SelectCellHandler" Cursor="Cross" Background="Green" TextAlignment="Center" Grid.Row="1" Grid.Column="1" />
+            <TextBlock  x:Name="startRow" Cursor="ScrollE" Background="DarkGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" TextAlignment="Center" Text="1" Grid.Row="1" Grid.Column="0" MouseUp="SelectReverseCells">
+                <TextBlock.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Вырезать" />
+                        <MenuItem Header="Копировать" />
+                        <MenuItem Header="Вставить" />
+                        <MenuItem Header="Удалить" />
+                        <MenuItem Header="Очистить содержимое" />
+                        <MenuItem Header="Формат ячеек" />
+                        <MenuItem Header="Высота строки" Click="changeRowHeightHandler" />
+                        <MenuItem Header="Скрыть" />
+                        <MenuItem Header="Показать" />
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+            <TextBlock x:Name="startCell" MouseUp="SelectCellHandler" Cursor="Cross" Background="Green" TextAlignment="Center" Grid.Row="1" Grid.Column="1">
+                <TextBlock.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Вырезать" />
+                        <MenuItem Header="Копировать" />
+                        <MenuItem Header="Интелектуальный поиск" />
+                        <MenuItem Header="Вставить" />
+                        <MenuItem Header="Удалить" />
+                        <MenuItem Header="Очистить содержимое" />
+                        <MenuItem Header="Экспресс-анализ" />
+                        <MenuItem Header="Фильтр" />
+                        <MenuItem Header="Сортировка" />
+                        <MenuItem Header="Вставить примечание" />
+                        <MenuItem Header="Формат ячеек" />
+                        <MenuItem Header="Выбрать из раскрывающегося списка..." />
+                        <MenuItem Header="Присвоить имя" />
+                        <MenuItem Header="Ссылка" />
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="1" Grid.Column="2" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="1" Grid.Column="3" />
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="1" Grid.Column="4" />
@@ -514,7 +561,12 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="19" Grid.Column="20" />
         </Grid>
         <StackPanel Background="LightGray" Grid.Row="3" Orientation="Horizontal">
-            <TextBlock Text="Лист 1"/>
+            <TextBlock Text="left"/>
+            <TextBlock Text="right"/>
+            <StackPanel Background="LightGray" Grid.Row="3" Orientation="Horizontal">
+                <TextBlock Text="Лист 1" />
+            </StackPanel>
+            <TextBlock Text="+"/>
         </StackPanel>
         <StackPanel Background="LightGray" Grid.Row="4" Orientation="Horizontal">
             <TextBlock Margin="15, 0, 15, 0" Height="15" Text="Готово"/>

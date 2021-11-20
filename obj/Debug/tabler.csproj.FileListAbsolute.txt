@@ -97,3 +97,7 @@ C:\wpfprojects\tabler\bin\Debug\ru\Microsoft.CodeAnalysis.Scripting.resources.dl
 C:\wpfprojects\tabler\bin\Debug\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\wpfprojects\tabler\bin\Debug\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\wpfprojects\tabler\bin\Debug\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\wpfprojects\tabler\obj\Debug\Dialogs\ChangeColumnWidthDialog.g.cs
+C:\wpfprojects\tabler\obj\Debug\Dialogs\ChangeColumnWidthDialog.baml
+C:\wpfprojects\tabler\obj\Debug\Dialogs\ChangeRowHeightDialog.g.cs
+C:\wpfprojects\tabler\obj\Debug\Dialogs\ChangeRowHeightDialog.baml

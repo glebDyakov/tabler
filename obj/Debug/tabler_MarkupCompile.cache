@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\wpfprojects\tabler\App.xaml
-11151548125
+31388333635
 
-5-2017746502
+71572724573
 31579325479
-MainWindow.xaml;
+Dialogs\ChangeColumnWidthDialog.xaml;Dialogs\ChangeRowHeightDialog.xaml;MainWindow.xaml;
 
 False
 

@@ -1,0 +1,21 @@
+﻿<Window x:Class="tabler.Dialogs.ChangeRowHeightDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tabler.Dialogs"
+        mc:Ignorable="d"
+        Title="Изменение высоты строки" Height="100" Width="250">
+    <Grid>
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <StackPanel Margin="0, 10, 0, 0" Orientation="Horizontal">
+                <TextBlock Text="Высота строки:" />
+                <TextBox x:Name="rowHeight" Margin="15, 0, 0, 0" Text="50" Width="100" />
+            </StackPanel>
+            <StackPanel Margin="0, 10, 0, 0" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Width="65" Content="ОК" Click="okHandler" />
+                <Button Width="65" Margin="15, 0, 15, 0" Click="cancelHandler" Content="Отмена" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

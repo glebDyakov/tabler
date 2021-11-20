@@ -63,7 +63,8 @@ namespace tabler
 
         private void SelectCellHandler(object sender, MouseButtonEventArgs e)
         {
-            if(activeCell.Text.Length >= 1 && activeCell.Text[0] == '=')
+            ResetSelectCells();
+            if (activeCell.Text.Length >= 1 && activeCell.Text[0] == '=')
             {
                 //debugger.Speak("это ячейка формула");
                 string expression = activeCell.Text.Substring(1);
@@ -90,7 +91,7 @@ namespace tabler
             activeColumn.Background = System.Windows.Media.Brushes.LightGray;
             activeColumn = ((TextBlock)paper.Children[actualColumn]);
             activeColumn.Background = System.Windows.Media.Brushes.DarkGray;
-            activeRow = ((TextBlock)paper.Children[columnsPerRow * (actualRow + 1)]);
+            activeRow = ((TextBlock)paper.Children[columnsPerRow * (actualRow + 0)]);
             activeRow.Background = System.Windows.Media.Brushes.DarkGray;
             formula.Text = activeCell.Text;
         }
@@ -114,21 +115,7 @@ namespace tabler
                 ((TextBlock)paper.Children[columnsPerRow * (actualRow + 1) * (rowIndex - 1)]).Background = System.Windows.Media.Brushes.DarkGray;
             }
             // сбрасываем выделенные колонки
-            for (int rowIndex = 1; rowIndex < paper.ColumnDefinitions.Count; rowIndex++)
-            {
-                for (int columnIndex = 0; columnIndex < paper.RowDefinitions.Count - 1; columnIndex++)
-                {
-                    if (columnIndex == 0)
-                    {
-                        // нужно раскрашивать шапку колокни
-                        ((TextBlock)paper.Children[rowIndex - 0 + 21 * columnIndex]).Background = System.Windows.Media.Brushes.LightGray;
-                    }
-                    else
-                    {
-                        ((TextBlock)paper.Children[rowIndex - 0 + 21 * columnIndex]).Background = System.Windows.Media.Brushes.White;
-                    }
-                }
-            }
+            ResetSelectCells();
             // выделяем колонки
             for (int columnIndex = 1; columnIndex < paper.RowDefinitions.Count; columnIndex++)
             {
@@ -192,5 +179,37 @@ namespace tabler
         {
 
         }
+
+        private void ResetSelectCells()
+        {
+            for (int rowIndex = 1; rowIndex < paper.ColumnDefinitions.Count; rowIndex++)
+            {
+                for (int columnIndex = 0; columnIndex < paper.RowDefinitions.Count - 1; columnIndex++)
+                {
+                    if (columnIndex == 0)
+                    {
+                        // нужно раскрашивать шапку колокни
+                        ((TextBlock)paper.Children[rowIndex - 0 + 21 * columnIndex]).Background = System.Windows.Media.Brushes.LightGray;
+                    }
+                    else
+                    {
+                        ((TextBlock)paper.Children[rowIndex - 0 + 21 * columnIndex]).Background = System.Windows.Media.Brushes.White;
+                    }
+                }
+            }
+        }
+
+        private void changeColumnWidthHandler(object sender, RoutedEventArgs e)
+        {
+            Dialogs.ChangeColumnWidthDialog changeColumnWidthDialog = new Dialogs.ChangeColumnWidthDialog(activeCell, paper);
+            changeColumnWidthDialog.Show();
+        }
+
+        private void changeRowHeightHandler(object sender, RoutedEventArgs e)
+        {
+            Dialogs.ChangeRowHeightDialog changeRowHeightDialog = new Dialogs.ChangeRowHeightDialog(activeCell, paper);
+            changeRowHeightDialog.Show();
+        }
+
     }
 }
