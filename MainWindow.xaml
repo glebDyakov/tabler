@@ -19,6 +19,9 @@
         </Grid.ColumnDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="Файл"></MenuItem>
+            <MenuItem Header="Главная">
+                <MenuItem Header="Цвет заливки" Click="FillColorHandler" />
+            </MenuItem>
             <MenuItem Header="Вставка"></MenuItem>
             <MenuItem Header="Разметка страницы"></MenuItem>
             <MenuItem Header="Формулы"></MenuItem>
@@ -35,7 +38,7 @@
         </Menu>
         <StackPanel Margin="0, 0, 0, 0" Orientation="Horizontal" Background="LightGray" Grid.Row="1">
             <ComboBox Margin="15, 5, 0, 5" Width="125" SelectedIndex="0">
-                <ComboBoxItem Content="A1" />
+                <ComboBoxItem x:Name="activeCellCoords" Content="A1" />
             </ComboBox>
             <TextBlock Text="⋮" Height="15" TextAlignment="Center" Margin="15, 0, 0, 0" />
             <StackPanel Background="White" Margin="15, 5, 0, 5" Orientation="Horizontal">
@@ -43,7 +46,7 @@
                 <TextBlock x:Name="applyBtn" Foreground="LightGray" FontFamily="Showcard Gothic" MouseUp="ApplyBtnHandler" Text="V" Height="15" TextAlignment="Center" Margin="15, 0, 0, 0" />
                 <TextBlock x:Name="insertFormulaBtn" FontFamily="Showcard Gothic" MouseUp="InsertFormulaBtnHandler" Text="fx" Height="15" TextAlignment="Center" Margin="15, 0, 15, 0" />
             </StackPanel>
-            <TextBox x:Name="formula"  TextChanged="InputFormulaHandler" Margin="15, 5, 0, 5" Width="510" />
+            <TextBox x:Name="formula" TextChanged="InputFormulaHandler" Margin="15, 5, 0, 5" Width="510" />
         </StackPanel>
         <Grid x:Name="paper"  Grid.Row="2" ShowGridLines="True">
             <Grid.RowDefinitions>
@@ -561,12 +564,14 @@
             <TextBlock MouseUp="SelectCellHandler" Cursor="Cross" TextAlignment="Center" Grid.Row="19" Grid.Column="20" />
         </Grid>
         <StackPanel Background="LightGray" Grid.Row="3" Orientation="Horizontal">
-            <TextBlock Text="left"/>
-            <TextBlock Text="right"/>
-            <StackPanel Background="LightGray" Grid.Row="3" Orientation="Horizontal">
-                <TextBlock Text="Лист 1" />
+            <TextBlock ToolTip="CTRL + левая кнопка мыши - переход на первый лист. Правая кнопка мыши - просмотр всех листов" Text="&lt;" Margin="15, 0, 0, 0" />
+            <TextBlock Text="&gt;" Margin="15, 0, 0, 0" />
+            <StackPanel x:Name="papersList"  Background="LightGray" Grid.Row="3" Orientation="Horizontal" Margin="15, 0, 0, 0" >
+                <Border x:Name="paperLabel" MouseUp="SelectPapersLabelHandler" BorderThickness="0, 0, 0, 2" BorderBrush="DarkGreen" Height="20"  VerticalAlignment="Top" MouseEnter="SetPapersLabelHoverStyle" MouseLeave="SetPapersLabelStandardStyle">
+                    <TextBlock Foreground="DarkGreen" FontWeight="ExtraBlack" Width="75" TextAlignment="Center" Background="White" Text="Лист 1" />
+                </Border>
             </StackPanel>
-            <TextBlock Text="+"/>
+            <Button Content="+" ToolTip="Новый лист" Margin="20, 0, 0, 0" Click="AddPaperHandler" Width="50" Height="20" VerticalAlignment="Top" />
         </StackPanel>
         <StackPanel Background="LightGray" Grid.Row="4" Orientation="Horizontal">
             <TextBlock Margin="15, 0, 15, 0" Height="15" Text="Готово"/>
