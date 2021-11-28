@@ -178,7 +178,7 @@
                 <TextBlock Cursor="ScrollS" TextAlignment="Center" Text="V" />
             </Border>
             <Border x:Name="startRow" Background="DarkGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" Grid.Row="1" Grid.Column="0" MouseUp="SelectReverseCells" BorderThickness="1" BorderBrush="LightSlateGray">
-                <TextBlock  Cursor="ScrollE" TextAlignment="Center" Text="1">
+                <TextBlock  Cursor="ScrollE" TextAlignment="Center" Text="1" Margin="0,1,0,-1">
                     <TextBlock.ContextMenu>
                         <ContextMenu>
                             <MenuItem Header="Вырезать" />
@@ -194,7 +194,7 @@
                     </TextBlock.ContextMenu>
                 </TextBlock>
             </Border>
-            <Border x:Name="startCell" Grid.Row="1" Grid.Column="1" BorderBrush="DarkGreen" BorderThickness="1">
+            <Border x:Name="startCell" MouseUp="SelectCellHandler" Grid.Row="1" Grid.Column="1" BorderBrush="DarkGreen" BorderThickness="1">
                 <TextBlock Cursor="Cross" TextAlignment="Center">
                     <TextBlock.ContextMenu>
                         <ContextMenu>

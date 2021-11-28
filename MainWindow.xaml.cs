@@ -329,7 +329,8 @@ namespace tabler
                         
                         /*((TextBlock)paper.Children[rowIndex - 0 + 21 * columnIndex]).Background = System.Windows.Media.Brushes.LightGray;*/
                         ((TextBlock)((Border)paper.Children[rowIndex - 0 + 21 * columnIndex]).Child).Background = System.Windows.Media.Brushes.LightGray;
-                    
+                        ((Border)paper.Children[rowIndex - 0 + 21 * columnIndex]).BorderBrush = System.Windows.Media.Brushes.LightSlateGray;
+ 
                     }
                     else
                     {
@@ -337,6 +338,7 @@ namespace tabler
                         /*((TextBlock)paper.Children[rowIndex - 0 + 21 * columnIndex]).Background = System.Windows.Media.Brushes.White;*/
                         /*((TextBlock)((Border)paper.Children[rowIndex - 0 + 21 * columnIndex]).Child).Background = System.Windows.Media.Brushes.White;*/
                         ((Border)paper.Children[rowIndex - 0 + 21 * columnIndex]).BorderBrush = System.Windows.Media.Brushes.LightGray;
+
                     }
                 }
             }
@@ -476,7 +478,10 @@ namespace tabler
             List<String> sortedCells = new List<String>();
             for (int columnIndex = 2; columnIndex < paper.RowDefinitions.Count; columnIndex++)
             {
-                string currentCellText = ((TextBlock)paper.Children[actualColumn - 0 + 21 * (columnIndex - 1)]).Text;
+
+                /*string currentCellText = ((TextBlock)paper.Children[actualColumn - 0 + 21 * (columnIndex - 1)]).Text;*/
+                string currentCellText = ((TextBlock)((Border)paper.Children[actualColumn - 0 + 21 * (columnIndex - 1)]).Child).Text;
+
                 sortedCells.Add(currentCellText);
             }
             Int64 digitalCell = 0;
@@ -489,7 +494,10 @@ namespace tabler
 
             for (int columnIdx = 2; columnIdx < paper.RowDefinitions.Count; columnIdx++)
             {
-                ((TextBlock)paper.Children[actualColumn - 0 + 21 * (columnIdx - 1)]).Text = sortedCellsList.ToArray<String>()[columnIdx - 2];
+
+                /*((TextBlock)paper.Children[actualColumn - 0 + 21 * (columnIdx - 1)]).Text = sortedCellsList.ToArray<String>()[columnIdx - 2];*/
+                ((TextBlock)((Border)paper.Children[actualColumn - 0 + 21 * (columnIdx - 1)]).Child).Text = sortedCellsList.ToArray<String>()[columnIdx - 2];
+
             }
         }
 
@@ -504,7 +512,10 @@ namespace tabler
             List<String> sortedCells = new List<String>();
             for (int columnIndex = 2; columnIndex < paper.RowDefinitions.Count; columnIndex++)
             {
-                string currentCellText = ((TextBlock)paper.Children[actualColumn - 0 + 21 * (columnIndex - 1)]).Text;
+
+                /*string currentCellText = ((TextBlock)paper.Children[actualColumn - 0 + 21 * (columnIndex - 1)]).Text;*/
+                string currentCellText = ((TextBlock)((Border)paper.Children[actualColumn - 0 + 21 * (columnIndex - 1)]).Child).Text;
+
                 sortedCells.Add(currentCellText);
             }
             Int64 digitalCell = 0;
@@ -517,7 +528,10 @@ namespace tabler
 
             for (int columnIdx = 2; columnIdx < paper.RowDefinitions.Count; columnIdx++)
             {
-                ((TextBlock)paper.Children[actualColumn - 0 + 21 * (columnIdx - 1)]).Text = sortedCellsList.ToArray<String>()[columnIdx - 2];
+
+                /*((TextBlock)paper.Children[actualColumn - 0 + 21 * (columnIdx - 1)]).Text = sortedCellsList.ToArray<String>()[columnIdx - 2];*/
+                ((TextBlock)((Border)paper.Children[actualColumn - 0 + 21 * (columnIdx - 1)]).Child).Text = sortedCellsList.ToArray<String>()[columnIdx - 2];
+
             }
         }
 
