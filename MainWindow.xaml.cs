@@ -110,6 +110,15 @@ namespace tabler
                 },
                 {
                     21, "W"
+                },
+                {
+                    22, "X"
+                },
+                {
+                    23, "Y"
+                },
+                {
+                    24, "Z"
                 }
             };
         }
@@ -539,6 +548,222 @@ namespace tabler
         {
             /*activeCell.Foreground = System.Windows.Media.Brushes.Blue;*/
             ((TextBlock)activeCell.Child).Foreground = System.Windows.Media.Brushes.Blue;
+        }
+
+        private void GenerateCellsHandler(object sender, MouseWheelEventArgs e)
+        {
+            // int delta = e.Delta < 0 ? e.Delta * -1 : e.Delta;
+            int delta = e.Delta;
+            int countGeneratedCells = delta / 120;
+            if (e.Delta < 0)
+            {
+                if ((Keyboard.Modifiers & ModifierKeys.Shift) > 0)
+                {
+                    for (int newColumnIdx = 0; newColumnIdx < countGeneratedCells * -1; newColumnIdx++)
+                    {
+                        paper.ColumnDefinitions.RemoveAt(paper.ColumnDefinitions.Count - 1);
+                    }
+                }
+                else
+                {
+                    for (int newRowIdx = 0; newRowIdx < countGeneratedCells * -1; newRowIdx++)
+                    {
+                        paper.RowDefinitions.RemoveAt(paper.RowDefinitions.Count - 1);
+                    }
+                }
+            }
+            else if (e.Delta > 0)
+            {
+                if ((Keyboard.Modifiers & ModifierKeys.Shift) > 0)
+                {
+                    for (int newColumnIdx = 0; newColumnIdx < countGeneratedCells; newColumnIdx++)
+                    {
+                        ColumnDefinition newColumnDefinition = new ColumnDefinition();
+                        newColumnDefinition.Width = new GridLength(75);
+                        paper.ColumnDefinitions.Add(newColumnDefinition);
+
+                        for (int newCellIdx = 0; newCellIdx < paper.RowDefinitions.Count; newCellIdx++)
+                        {
+                            Border newCellBorder = new Border();
+                            newCellBorder.BorderThickness = new Thickness(1);
+                            TextBlock newCell = new TextBlock();
+                            if (newCellIdx == 0)
+                            {
+                                newCell.Background = System.Windows.Media.Brushes.LightGray;
+                                newCell.Text = columnLabels[paper.ColumnDefinitions.Count - 1];
+                                newCell.TextAlignment = TextAlignment.Center;
+                                newCellBorder.BorderBrush = System.Windows.Media.Brushes.LightSlateGray;
+                                newCellBorder.MouseUp += SelectReverseCells;
+                                newCellBorder.MouseEnter += HoverRowHandler;
+                                newCellBorder.MouseLeave += HoutRowHandler;
+                                newCellBorder.Cursor = Cursors.ScrollS;
+                            }
+                            else
+                            {
+                                newCellBorder.BorderBrush = System.Windows.Media.Brushes.LightGray;
+                                newCellBorder.MouseUp += SelectCellHandler;
+                                newCellBorder.Cursor = Cursors.Cross;
+                                ContextMenu cellContextMenu = new ContextMenu();
+                                MenuItem cutContextMenuBtn = new MenuItem();
+                                cutContextMenuBtn.Header = "Вырезать";
+                                cutContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Вырезать");
+                                };
+                                cellContextMenu.Items.Add(cutContextMenuBtn);
+                                MenuItem copyContextMenuBtn = new MenuItem();
+                                copyContextMenuBtn.Header = "Копировать";
+                                copyContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Копировать");
+                                };
+                                cellContextMenu.Items.Add(copyContextMenuBtn);
+                                MenuItem insertContextMenuBtn = new MenuItem();
+                                insertContextMenuBtn.Header = "Вставить";
+                                insertContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Вставить");
+                                };
+                                cellContextMenu.Items.Add(insertContextMenuBtn);
+                                MenuItem removeContextMenuBtn = new MenuItem();
+                                removeContextMenuBtn.Header = "Удалить";
+                                removeContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Удалить");
+                                };
+                                cellContextMenu.Items.Add(removeContextMenuBtn);
+                                MenuItem clearContentContextMenuBtn = new MenuItem();
+                                clearContentContextMenuBtn.Header = "Очистить содержимое";
+                                clearContentContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Очистить содержимое");
+                                };
+                                cellContextMenu.Items.Add(clearContentContextMenuBtn);
+                                MenuItem cellsFormatContextMenuBtn = new MenuItem();
+                                cellsFormatContextMenuBtn.Header = "Формат ячеек";
+                                cellsFormatContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Формат ячеек");
+                                };
+                                cellContextMenu.Items.Add(cellsFormatContextMenuBtn);
+                                MenuItem columnWidthContextMenuBtn = new MenuItem();
+                                columnWidthContextMenuBtn.Header = "Высота строки";
+                                columnWidthContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Высота строки");
+                                };
+                                cellContextMenu.Items.Add(columnWidthContextMenuBtn);
+                                MenuItem hideContextMenuBtn = new MenuItem();
+                                hideContextMenuBtn.Header = "Скрыть";
+                                hideContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Скрыть");
+                                };
+                                cellContextMenu.Items.Add(hideContextMenuBtn);
+                                MenuItem showContextMenuBtn = new MenuItem();
+                                showContextMenuBtn.Header = "Скрыть";
+                                showContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Показать");
+                                };
+                                cellContextMenu.Items.Add(showContextMenuBtn);
+                                newCell.ContextMenu = cellContextMenu;
+                            }
+                            newCellBorder.Child = newCell;
+                            paper.Children.Add(newCellBorder);
+                            Grid.SetRow(newCellBorder, newCellIdx);
+                            Grid.SetColumn(newCellBorder, paper.ColumnDefinitions.Count - 1);
+                        }
+                        columnsPerRow++;
+                    }
+                }
+                else
+                {
+                    for (int newRowIdx = 0; newRowIdx < countGeneratedCells; newRowIdx++)
+                    {
+                        RowDefinition newRowDefinition = new RowDefinition();
+                        newRowDefinition.Height = new GridLength(15);
+                        paper.RowDefinitions.Add(newRowDefinition);
+
+                        for (int newCellIdx = 0; newCellIdx < paper.ColumnDefinitions.Count; newCellIdx++)
+                        {
+                            Border newCellBorder = new Border();
+                            newCellBorder.BorderThickness = new Thickness(1);
+                            newCellBorder.BorderBrush = System.Windows.Media.Brushes.LightGray;
+                            TextBlock newCell = new TextBlock();
+                            if (newCellIdx == 0)
+                            {
+                                newCell.Background = System.Windows.Media.Brushes.LightGray;
+                                newCell.Text = (paper.RowDefinitions.Count - 1).ToString();
+                                newCell.TextAlignment = TextAlignment.Center;
+                                newCellBorder.BorderBrush = System.Windows.Media.Brushes.LightSlateGray;
+                                newCellBorder.MouseUp += SelectReverseCells;
+                                newCellBorder.MouseEnter += HoverRowHandler;
+                                newCellBorder.MouseLeave += HoutRowHandler;
+                                newCellBorder.Cursor = Cursors.ScrollE;
+                            }
+                            else
+                            {
+                                newCellBorder.BorderBrush = System.Windows.Media.Brushes.LightGray;
+                                newCellBorder.MouseUp += SelectCellHandler;
+                                newCellBorder.Cursor = Cursors.Cross;
+                                ContextMenu cellContextMenu = new ContextMenu();
+                                MenuItem cutContextMenuBtn = new MenuItem();
+                                cutContextMenuBtn.Header = "Вырезать";
+                                cutContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Вырезать");
+                                };
+                                cellContextMenu.Items.Add(cutContextMenuBtn);
+                                MenuItem copyContextMenuBtn = new MenuItem();
+                                copyContextMenuBtn.Header = "Копировать";
+                                copyContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Копировать");
+                                };
+                                cellContextMenu.Items.Add(copyContextMenuBtn);
+                                MenuItem insertContextMenuBtn = new MenuItem();
+                                insertContextMenuBtn.Header = "Вставить";
+                                insertContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Вставить");
+                                };
+                                cellContextMenu.Items.Add(insertContextMenuBtn);
+                                MenuItem removeContextMenuBtn = new MenuItem();
+                                removeContextMenuBtn.Header = "Удалить";
+                                removeContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Удалить");
+                                };
+                                cellContextMenu.Items.Add(removeContextMenuBtn);
+                                MenuItem clearContentContextMenuBtn = new MenuItem();
+                                clearContentContextMenuBtn.Header = "Очистить содержимое";
+                                clearContentContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Очистить содержимое");
+                                };
+                                cellContextMenu.Items.Add(clearContentContextMenuBtn);
+                                MenuItem cellsFormatContextMenuBtn = new MenuItem();
+                                cellsFormatContextMenuBtn.Header = "Формат ячеек";
+                                cellsFormatContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Формат ячеек");
+                                };
+                                cellContextMenu.Items.Add(cellsFormatContextMenuBtn);
+                                MenuItem columnWidthContextMenuBtn = new MenuItem();
+                                columnWidthContextMenuBtn.Header = "Ширина столбца";
+                                columnWidthContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Ширина столбца");
+                                };
+                                cellContextMenu.Items.Add(columnWidthContextMenuBtn);
+                                MenuItem hideContextMenuBtn = new MenuItem();
+                                hideContextMenuBtn.Header = "Скрыть";
+                                hideContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Скрыть");
+                                };
+                                cellContextMenu.Items.Add(hideContextMenuBtn);
+                                MenuItem showContextMenuBtn = new MenuItem();
+                                showContextMenuBtn.Header = "Скрыть";
+                                showContextMenuBtn.Click += delegate {
+                                    debugger.Speak("Показать");
+                                };
+                                cellContextMenu.Items.Add(showContextMenuBtn);
+                                newCell.ContextMenu = cellContextMenu;
+                            }
+                            newCellBorder.Child = newCell;
+                            paper.Children.Add(newCellBorder);
+                            Grid.SetRow(newCellBorder, paper.RowDefinitions.Count - 1);
+                            Grid.SetColumn(newCellBorder, newCellIdx);
+                        }
+                        rowsPerColumn++;
+                    }
+                }
+            }
         }
     }
 }
