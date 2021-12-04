@@ -35,6 +35,7 @@ namespace tabler
         public Grid activePaper;
         public Border activePaperLabel;
         public Dictionary<Int32, String> columnLabels;
+       
 
         public MainWindow()
         {
@@ -665,7 +666,7 @@ namespace tabler
                             Grid.SetRow(newCellBorder, newCellIdx);
                             Grid.SetColumn(newCellBorder, paper.ColumnDefinitions.Count - 1);
                         }
-                        columnsPerRow++;
+                        rowsPerColumn++;
                     }
                 }
                 else
@@ -760,8 +761,220 @@ namespace tabler
                             Grid.SetRow(newCellBorder, paper.RowDefinitions.Count - 1);
                             Grid.SetColumn(newCellBorder, newCellIdx);
                         }
-                        rowsPerColumn++;
                     }
+                }
+            }
+        }
+
+        private void SelectCellDrivenKeyboardHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Left)
+            {
+                debugger.Speak("Перемещаюсь на ячейку влево");
+                int actualColumn = Grid.GetColumn(activeCell);
+                int actualRow = Grid.GetRow(activeCell);
+                if (actualRow >= 2) {
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.LightGray;
+                    if (actualColumn == 1)
+                    {
+                        activeCell = ((Border)paper.Children[paper.Children.IndexOf(activeCell) - 2]);
+                    } else
+                    {
+                        activeCell = ((Border)paper.Children[paper.Children.IndexOf(activeCell) - 1]);
+                    }
+
+                    /*
+                     * Начало логики выделения ячейки взятой из SelectCellHandler
+                    */
+                    ResetReverseSelectCells();
+                    ResetSelectCells();
+                    if (((TextBlock)activeCell.Child).Text.Length >= 1 && ((TextBlock)activeCell.Child).Text[0] == '=')
+                    {
+                        string expression = ((TextBlock)activeCell.Child).Text.Substring(1);
+                        int repeats = 0;
+                        foreach (char expressionSymbol in expression)
+                        {
+                            if (expressionSymbol == '=')
+                            {
+                                repeats++;
+                            }
+                        }
+                        if (repeats == 0)
+                        {
+                            double result = CSharpScript.EvaluateAsync<double>(expression).Result;
+                            ((TextBlock)activeCell.Child).Text = result.ToString();
+                        }
+                    }
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.DarkGreen;
+                    actualColumn = Grid.GetColumn(activeCell);
+                    actualRow = Grid.GetRow(activeCell);
+                    ((TextBlock)activeRow.Child).Background = System.Windows.Media.Brushes.LightGray;
+                    ((TextBlock)activeColumn.Child).Background = System.Windows.Media.Brushes.LightGray;
+                    activeColumn = ((Border)paper.Children[actualColumn]);
+                    ((TextBlock)activeColumn.Child).Background = System.Windows.Media.Brushes.DarkGray;
+                    activeRow = ((Border)paper.Children[columnsPerRow * (actualRow + 0)]);
+                    ((TextBlock)activeRow.Child).Background = System.Windows.Media.Brushes.DarkGray;
+                    formula.Text = ((TextBlock)activeCell.Child).Text;
+                    activeCellCoords.Content = columnLabels[actualColumn] + actualRow.ToString();
+                    /*
+                     * Конец логики выделения ячейки взятой из SelectCellHandler
+                    */
+
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.DarkGreen;
+                }
+            } else if (e.Key == Key.Right)
+            {
+                debugger.Speak("Перемещаюсь на ячейку вправо");
+                int actualColumn = Grid.GetColumn(activeCell);
+                int actualRow = Grid.GetRow(activeCell);
+                if (actualRow < paper.RowDefinitions.Count - 2)
+                {
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.LightGray;
+                    if (actualColumn == paper.ColumnDefinitions.Count - 1)
+                    {
+                        activeCell = ((Border)paper.Children[paper.Children.IndexOf(activeCell) + 2]);
+                    }
+                    else
+                    {
+                        activeCell = ((Border)paper.Children[paper.Children.IndexOf(activeCell) + 1]);
+                    }
+
+                    /*
+                     * Начало логики выделения ячейки взятой из SelectCellHandler
+                    */
+                    ResetReverseSelectCells();
+                    ResetSelectCells();
+                    if (((TextBlock)activeCell.Child).Text.Length >= 1 && ((TextBlock)activeCell.Child).Text[0] == '=')
+                    {
+                        string expression = ((TextBlock)activeCell.Child).Text.Substring(1);
+                        int repeats = 0;
+                        foreach (char expressionSymbol in expression)
+                        {
+                            if (expressionSymbol == '=')
+                            {
+                                repeats++;
+                            }
+                        }
+                        if (repeats == 0)
+                        {
+                            double result = CSharpScript.EvaluateAsync<double>(expression).Result;
+                            ((TextBlock)activeCell.Child).Text = result.ToString();
+                        }
+                    }
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.DarkGreen;
+                    actualColumn = Grid.GetColumn(activeCell);
+                    actualRow = Grid.GetRow(activeCell);
+                    ((TextBlock)activeRow.Child).Background = System.Windows.Media.Brushes.LightGray;
+                    ((TextBlock)activeColumn.Child).Background = System.Windows.Media.Brushes.LightGray;
+                    activeColumn = ((Border)paper.Children[actualColumn]);
+                    ((TextBlock)activeColumn.Child).Background = System.Windows.Media.Brushes.DarkGray;
+                    activeRow = ((Border)paper.Children[columnsPerRow * (actualRow + 0)]);
+                    ((TextBlock)activeRow.Child).Background = System.Windows.Media.Brushes.DarkGray;
+                    formula.Text = ((TextBlock)activeCell.Child).Text;
+                    activeCellCoords.Content = columnLabels[actualColumn] + actualRow.ToString();
+                    /*
+                     * Конец логики выделения ячейки взятой из SelectCellHandler
+                    */
+
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.DarkGreen;
+                }
+            } else if (e.Key == Key.Up)
+            {
+                debugger.Speak("Перемещаюсь на ячейку вверх");
+                int actualColumn = Grid.GetColumn(activeCell);
+                int actualRow = Grid.GetRow(activeCell);
+                if (actualRow >= 2)
+                {
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.LightGray;
+                    activeCell = ((Border)paper.Children[paper.Children.IndexOf(activeCell) - columnsPerRow]);
+
+                    /*
+                     * Начало логики выделения ячейки взятой из SelectCellHandler
+                    */
+                    ResetReverseSelectCells();
+                    ResetSelectCells();
+                    if (((TextBlock)activeCell.Child).Text.Length >= 1 && ((TextBlock)activeCell.Child).Text[0] == '=')
+                    {
+                        string expression = ((TextBlock)activeCell.Child).Text.Substring(1);
+                        int repeats = 0;
+                        foreach (char expressionSymbol in expression)
+                        {
+                            if (expressionSymbol == '=')
+                            {
+                                repeats++;
+                            }
+                        }
+                        if (repeats == 0)
+                        {
+                            double result = CSharpScript.EvaluateAsync<double>(expression).Result;
+                            ((TextBlock)activeCell.Child).Text = result.ToString();
+                        }
+                    }
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.DarkGreen;
+                    actualColumn = Grid.GetColumn(activeCell);
+                    actualRow = Grid.GetRow(activeCell);
+                    ((TextBlock)activeRow.Child).Background = System.Windows.Media.Brushes.LightGray;
+                    ((TextBlock)activeColumn.Child).Background = System.Windows.Media.Brushes.LightGray;
+                    activeColumn = ((Border)paper.Children[actualColumn]);
+                    ((TextBlock)activeColumn.Child).Background = System.Windows.Media.Brushes.DarkGray;
+                    activeRow = ((Border)paper.Children[columnsPerRow * (actualRow + 0)]);
+                    ((TextBlock)activeRow.Child).Background = System.Windows.Media.Brushes.DarkGray;
+                    formula.Text = ((TextBlock)activeCell.Child).Text;
+                    activeCellCoords.Content = columnLabels[actualColumn] + actualRow.ToString();
+                    /*
+                     * Конец логики выделения ячейки взятой из SelectCellHandler
+                    */
+
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.DarkGreen;
+                }
+            } else if (e.Key == Key.Down)
+            {
+                debugger.Speak("Перемещаюсь на ячейку вниз");
+                int actualColumn = Grid.GetColumn(activeCell);
+                int actualRow = Grid.GetRow(activeCell);
+                if (actualRow < paper.RowDefinitions.Count - 2)
+                {
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.LightGray;
+                    activeCell = ((Border)paper.Children[paper.Children.IndexOf(activeCell) + columnsPerRow]);
+
+                    /*
+                     * Начало логики выделения ячейки взятой из SelectCellHandler
+                    */
+                    ResetReverseSelectCells();
+                    ResetSelectCells();
+                    if (((TextBlock)activeCell.Child).Text.Length >= 1 && ((TextBlock)activeCell.Child).Text[0] == '=')
+                    {
+                        string expression = ((TextBlock)activeCell.Child).Text.Substring(1);
+                        int repeats = 0;
+                        foreach (char expressionSymbol in expression)
+                        {
+                            if (expressionSymbol == '=')
+                            {
+                                repeats++;
+                            }
+                        }
+                        if (repeats == 0)
+                        {
+                            double result = CSharpScript.EvaluateAsync<double>(expression).Result;
+                            ((TextBlock)activeCell.Child).Text = result.ToString();
+                        }
+                    }
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.DarkGreen;
+                    actualColumn = Grid.GetColumn(activeCell);
+                    actualRow = Grid.GetRow(activeCell);
+                    ((TextBlock)activeRow.Child).Background = System.Windows.Media.Brushes.LightGray;
+                    ((TextBlock)activeColumn.Child).Background = System.Windows.Media.Brushes.LightGray;
+                    activeColumn = ((Border)paper.Children[actualColumn]);
+                    ((TextBlock)activeColumn.Child).Background = System.Windows.Media.Brushes.DarkGray;
+                    activeRow = ((Border)paper.Children[columnsPerRow * (actualRow + 0)]);
+                    ((TextBlock)activeRow.Child).Background = System.Windows.Media.Brushes.DarkGray;
+                    formula.Text = ((TextBlock)activeCell.Child).Text;
+                    activeCellCoords.Content = columnLabels[actualColumn] + actualRow.ToString();
+                    /*
+                     * Конец логики выделения ячейки взятой из SelectCellHandler
+                    */
+
+                    activeCell.BorderBrush = System.Windows.Media.Brushes.DarkGreen;
                 }
             }
         }

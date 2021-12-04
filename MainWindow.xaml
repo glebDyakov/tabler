@@ -53,7 +53,7 @@
             </StackPanel>
             <TextBox x:Name="formula" TextChanged="InputFormulaHandler" Margin="15, 5, 0, 5" Width="510" />
         </StackPanel>
-        <ScrollViewer HorizontalScrollBarVisibility="Visible" Grid.Row="2">
+        <ScrollViewer KeyUp="SelectCellDrivenKeyboardHandler" HorizontalScrollBarVisibility="Visible" Grid.Row="2">
             <StackPanel>
                 <Grid x:Name="paper" MouseWheel="GenerateCellsHandler" ShowGridLines="False">
                     <Grid.RowDefinitions>
@@ -77,7 +77,7 @@
                         <RowDefinition Height="15" />
                         <RowDefinition Height="15" />
                         <RowDefinition Height="15" />
-
+                        <RowDefinition Height="15" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="75" />
@@ -162,7 +162,7 @@
                         <TextBlock Cursor="ScrollS" TextAlignment="Center" Text="O" />
                     </Border>
                     <Border Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" MouseUp="SelectCells" BorderThickness="1" BorderBrush="LightSlateGray" Grid.Row="0" Grid.Column="15">
-                        <TextBlock Cursor="ScrollS" TextAlignment="Center" Text="P" Grid.Row="0" Grid.Column="15" />
+                        <TextBlock Cursor="ScrollS" TextAlignment="Center" Text="P" />
                     </Border>
                     <Border Background="LightGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" MouseUp="SelectCells" BorderThickness="1" BorderBrush="LightSlateGray" Grid.Row="0" Grid.Column="16">
                         <TextBlock Cursor="ScrollS" TextAlignment="Center" Text="R" />
@@ -1978,7 +1978,7 @@
                         <TextBlock Cursor="Cross" TextAlignment="Center" />
                     </Border>
                     <Border MouseUp="SelectReverseCells" BorderThickness="1" BorderBrush="LightSlateGray" MouseEnter="HoverRowHandler" MouseLeave="HoutRowHandler" Grid.Row="15" Grid.Column="0">
-                        <TextBlock Cursor="ScrollE" Background="LightGray" TextAlignment="Center" Text="15" MouseUp="SelectReverseCells" />
+                        <TextBlock Cursor="ScrollE" Background="LightGray" TextAlignment="Center" Text="15" />
                     </Border>
                     <Border MouseUp="SelectCellHandler" BorderThickness="1" BorderBrush="LightGray" Grid.Row="15" Grid.Column="1">
                         <TextBlock Cursor="Cross" TextAlignment="Center" />
